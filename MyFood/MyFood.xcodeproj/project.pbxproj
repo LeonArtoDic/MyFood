@@ -8,20 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		CB441D192D438D8E00E4A199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D182D438D8E00E4A199 /* AppDelegate.swift */; };
-		CB441D1B2D438D8E00E4A199 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D1A2D438D8E00E4A199 /* SceneDelegate.swift */; };
-		CB441D1D2D438D8E00E4A199 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D1C2D438D8E00E4A199 /* ViewController.swift */; };
 		CB441D252D438D9200E4A199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB441D232D438D9200E4A199 /* LaunchScreen.storyboard */; };
 		CB441D2D2D43968C00E4A199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB441D2C2D43968C00E4A199 /* Assets.xcassets */; };
+		CB441D3D2D43E9E000E4A199 /* MenuListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D3C2D43E9E000E4A199 /* MenuListVC.swift */; };
+		CB441D3F2D43EA1A00E4A199 /* DishesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D3E2D43EA1A00E4A199 /* DishesListVC.swift */; };
+		CB441D412D43EA4B00E4A199 /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D402D43EA4B00E4A199 /* OrderVC.swift */; };
+		CB441D432D43EA5400E4A199 /* BasketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D422D43EA5400E4A199 /* BasketVC.swift */; };
+		CB441D462D4404CA00E4A199 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D452D4404CA00E4A199 /* Router.swift */; };
+		CB441D4A2D4405C600E4A199 /* Di.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D492D4405C600E4A199 /* Di.swift */; };
+		CB441D4E2D44076C00E4A199 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D4C2D44076C00E4A199 /* BaseViewController.swift */; };
+		CB441D4F2D44076C00E4A199 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D4D2D44076C00E4A199 /* BaseCoordinator.swift */; };
+		CB441D532D4408CE00E4A199 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D522D4408CE00E4A199 /* MenuListView.swift */; };
+		CB441D5B2D440AEC00E4A199 /* DishesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D5A2D440AEC00E4A199 /* DishesListView.swift */; };
+		CB441D5D2D440B3400E4A199 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D5C2D440B3400E4A199 /* OrderView.swift */; };
+		CB441D5F2D440B6400E4A199 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D5E2D440B6400E4A199 /* BasketView.swift */; };
+		CB441D612D440CE200E4A199 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D602D440CE200E4A199 /* AppCoordinator.swift */; };
+		CB441D632D440E7800E4A199 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D622D440E7800E4A199 /* MainCoordinator.swift */; };
+		CB441D652D440ED800E4A199 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D642D440ED800E4A199 /* Types.swift */; };
+		CB441D672D452E6D00E4A199 /* UIViewController + Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D662D452E6D00E4A199 /* UIViewController + Presentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CB441D152D438D8E00E4A199 /* MyFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB441D182D438D8E00E4A199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB441D1A2D438D8E00E4A199 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB441D1C2D438D8E00E4A199 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB441D242D438D9200E4A199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB441D262D438D9200E4A199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB441D2C2D43968C00E4A199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB441D3C2D43E9E000E4A199 /* MenuListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListVC.swift; sourceTree = "<group>"; };
+		CB441D3E2D43EA1A00E4A199 /* DishesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListVC.swift; sourceTree = "<group>"; };
+		CB441D402D43EA4B00E4A199 /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
+		CB441D422D43EA5400E4A199 /* BasketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketVC.swift; sourceTree = "<group>"; };
+		CB441D452D4404CA00E4A199 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CB441D492D4405C600E4A199 /* Di.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Di.swift; sourceTree = "<group>"; };
+		CB441D4C2D44076C00E4A199 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CB441D4D2D44076C00E4A199 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		CB441D522D4408CE00E4A199 /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
+		CB441D5A2D440AEC00E4A199 /* DishesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListView.swift; sourceTree = "<group>"; };
+		CB441D5C2D440B3400E4A199 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		CB441D5E2D440B6400E4A199 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
+		CB441D602D440CE200E4A199 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		CB441D622D440E7800E4A199 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CB441D642D440ED800E4A199 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		CB441D662D452E6D00E4A199 /* UIViewController + Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Presentable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +82,220 @@
 		CB441D172D438D8E00E4A199 /* MyFood */ = {
 			isa = PBXGroup;
 			children = (
-				CB441D182D438D8E00E4A199 /* AppDelegate.swift */,
-				CB441D1A2D438D8E00E4A199 /* SceneDelegate.swift */,
-				CB441D1C2D438D8E00E4A199 /* ViewController.swift */,
-				CB441D232D438D9200E4A199 /* LaunchScreen.storyboard */,
-				CB441D262D438D9200E4A199 /* Info.plist */,
-				CB441D2C2D43968C00E4A199 /* Assets.xcassets */,
+				CB441D362D43E68E00E4A199 /* App */,
+				CB441D4B2D44076C00E4A199 /* Base */,
+				CB441D472D4405AC00E4A199 /* Di */,
+				CB441D442D4404AD00E4A199 /* Router */,
+				CB441D352D43E62E00E4A199 /* Coordinators */,
+				CB441D302D43E5CE00E4A199 /* Views */,
+				CB441D312D43E5D300E4A199 /* ViewModels */,
+				CB441D2E2D43E5BE00E4A199 /* Models */,
+				CB441D342D43E60800E4A199 /* Utilities */,
+				CB441D332D43E5F200E4A199 /* Resources */,
+				CB441D322D43E5DB00E4A199 /* Services */,
 			);
 			path = MyFood;
+			sourceTree = "<group>";
+		};
+		CB441D2E2D43E5BE00E4A199 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB441D302D43E5CE00E4A199 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D372D43E6AE00E4A199 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CB441D312D43E5D300E4A199 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CB441D322D43E5DB00E4A199 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CB441D332D43E5F200E4A199 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D2C2D43968C00E4A199 /* Assets.xcassets */,
+				CB441D262D438D9200E4A199 /* Info.plist */,
+				CB441D232D438D9200E4A199 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CB441D342D43E60800E4A199 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D642D440ED800E4A199 /* Types.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CB441D352D43E62E00E4A199 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D602D440CE200E4A199 /* AppCoordinator.swift */,
+				CB441D622D440E7800E4A199 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		CB441D362D43E68E00E4A199 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D182D438D8E00E4A199 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CB441D372D43E6AE00E4A199 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D382D43E6D200E4A199 /* MenuScreen */,
+				CB441D3B2D43E82E00E4A199 /* CategoryDishesScreen */,
+				CB441D392D43E7B800E4A199 /* OrderScreen */,
+				CB441D3A2D43E7C600E4A199 /* BasketScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CB441D382D43E6D200E4A199 /* MenuScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D502D44089500E4A199 /* View */,
+				CB441D512D44089C00E4A199 /* Controller */,
+			);
+			path = MenuScreen;
+			sourceTree = "<group>";
+		};
+		CB441D392D43E7B800E4A199 /* OrderScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D562D440A9F00E4A199 /* View */,
+				CB441D572D440AA400E4A199 /* Controller */,
+			);
+			path = OrderScreen;
+			sourceTree = "<group>";
+		};
+		CB441D3A2D43E7C600E4A199 /* BasketScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D582D440AAC00E4A199 /* View */,
+				CB441D592D440AB000E4A199 /* Controller */,
+			);
+			path = BasketScreen;
+			sourceTree = "<group>";
+		};
+		CB441D3B2D43E82E00E4A199 /* CategoryDishesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D542D440A8F00E4A199 /* View */,
+				CB441D552D440A9300E4A199 /* Controller */,
+			);
+			path = CategoryDishesScreen;
+			sourceTree = "<group>";
+		};
+		CB441D442D4404AD00E4A199 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D452D4404CA00E4A199 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CB441D472D4405AC00E4A199 /* Di */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D492D4405C600E4A199 /* Di.swift */,
+			);
+			path = Di;
+			sourceTree = "<group>";
+		};
+		CB441D4B2D44076C00E4A199 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D4C2D44076C00E4A199 /* BaseViewController.swift */,
+				CB441D4D2D44076C00E4A199 /* BaseCoordinator.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CB441D502D44089500E4A199 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D522D4408CE00E4A199 /* MenuListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB441D512D44089C00E4A199 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D3C2D43E9E000E4A199 /* MenuListVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB441D542D440A8F00E4A199 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D5A2D440AEC00E4A199 /* DishesListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB441D552D440A9300E4A199 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D3E2D43EA1A00E4A199 /* DishesListVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB441D562D440A9F00E4A199 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D5C2D440B3400E4A199 /* OrderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB441D572D440AA400E4A199 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D402D43EA4B00E4A199 /* OrderVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB441D582D440AAC00E4A199 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D5E2D440B6400E4A199 /* BasketView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB441D592D440AB000E4A199 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB441D422D43EA5400E4A199 /* BasketVC.swift */,
+				CB441D662D452E6D00E4A199 /* UIViewController + Presentable.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +368,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB441D1D2D438D8E00E4A199 /* ViewController.swift in Sources */,
+				CB441D4A2D4405C600E4A199 /* Di.swift in Sources */,
+				CB441D5D2D440B3400E4A199 /* OrderView.swift in Sources */,
+				CB441D532D4408CE00E4A199 /* MenuListView.swift in Sources */,
+				CB441D652D440ED800E4A199 /* Types.swift in Sources */,
+				CB441D412D43EA4B00E4A199 /* OrderVC.swift in Sources */,
 				CB441D192D438D8E00E4A199 /* AppDelegate.swift in Sources */,
-				CB441D1B2D438D8E00E4A199 /* SceneDelegate.swift in Sources */,
+				CB441D3D2D43E9E000E4A199 /* MenuListVC.swift in Sources */,
+				CB441D462D4404CA00E4A199 /* Router.swift in Sources */,
+				CB441D4F2D44076C00E4A199 /* BaseCoordinator.swift in Sources */,
+				CB441D672D452E6D00E4A199 /* UIViewController + Presentable.swift in Sources */,
+				CB441D4E2D44076C00E4A199 /* BaseViewController.swift in Sources */,
+				CB441D632D440E7800E4A199 /* MainCoordinator.swift in Sources */,
+				CB441D3F2D43EA1A00E4A199 /* DishesListVC.swift in Sources */,
+				CB441D432D43EA5400E4A199 /* BasketVC.swift in Sources */,
+				CB441D5B2D440AEC00E4A199 /* DishesListView.swift in Sources */,
+				CB441D612D440CE200E4A199 /* AppCoordinator.swift in Sources */,
+				CB441D5F2D440B6400E4A199 /* BasketView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +530,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SD8K6LV4W9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyFood/Info.plist;
+				INFOPLIST_FILE = MyFood/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -314,7 +562,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SD8K6LV4W9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyFood/Info.plist;
+				INFOPLIST_FILE = MyFood/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
