@@ -3,8 +3,13 @@ import UIKit
 class MainCoordinator: BaseCoordinator {
     var finishFlow: VoidClosure?
     
+    // MARK: Private properties
+    
     private let screenFactory: ScreenFactory
     private let router: Router
+    
+    
+    // MARK: Initialization
     
     init(router: Router, screenFactory: ScreenFactory) {
         self.screenFactory = screenFactory
@@ -14,6 +19,9 @@ class MainCoordinator: BaseCoordinator {
     override func start() {
         showMenu()
     }
+    
+    
+    // MARK: Private methods
     
     private func showMenu() {
         let menuList = screenFactory.makeMenuScreen()

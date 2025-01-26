@@ -9,6 +9,5 @@ class DishesListVC<View: DishesListView>: BaseViewController<View> {
         view.backgroundColor = .green
         title = "Dishes"
         
-        navigationItem.sea
     }
 }

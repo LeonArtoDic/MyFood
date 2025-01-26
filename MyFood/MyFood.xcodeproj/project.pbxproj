@@ -26,6 +26,10 @@
 		CB441D632D440E7800E4A199 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D622D440E7800E4A199 /* MainCoordinator.swift */; };
 		CB441D652D440ED800E4A199 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D642D440ED800E4A199 /* Types.swift */; };
 		CB441D672D452E6D00E4A199 /* UIViewController + Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB441D662D452E6D00E4A199 /* UIViewController + Presentable.swift */; };
+		CB95EF942D45508700775F1B /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EF932D45508700775F1B /* CategoryCell.swift */; };
+		CB95EF962D4553DF00775F1B /* Cell + reuseId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EF952D4553DF00775F1B /* Cell + reuseId.swift */; };
+		CB95EF982D463C2D00775F1B /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EF972D463C2D00775F1B /* CategoryItem.swift */; };
+		CB95EF9A2D463C4200775F1B /* CategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EF992D463C4200775F1B /* CategorySection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		CB441D622D440E7800E4A199 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CB441D642D440ED800E4A199 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		CB441D662D452E6D00E4A199 /* UIViewController + Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Presentable.swift"; sourceTree = "<group>"; };
+		CB95EF932D45508700775F1B /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		CB95EF952D4553DF00775F1B /* Cell + reuseId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cell + reuseId.swift"; sourceTree = "<group>"; };
+		CB95EF972D463C2D00775F1B /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		CB95EF992D463C4200775F1B /* CategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,8 @@
 		CB441D2E2D43E5BE00E4A199 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB95EF972D463C2D00775F1B /* CategoryItem.swift */,
+				CB95EF992D463C4200775F1B /* CategorySection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				CB441D642D440ED800E4A199 /* Types.swift */,
+				CB95EF952D4553DF00775F1B /* Cell + reuseId.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -237,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				CB441D522D4408CE00E4A199 /* MenuListView.swift */,
+				CB95EF932D45508700775F1B /* CategoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,13 +385,17 @@
 				CB441D532D4408CE00E4A199 /* MenuListView.swift in Sources */,
 				CB441D652D440ED800E4A199 /* Types.swift in Sources */,
 				CB441D412D43EA4B00E4A199 /* OrderVC.swift in Sources */,
+				CB95EF962D4553DF00775F1B /* Cell + reuseId.swift in Sources */,
+				CB95EF942D45508700775F1B /* CategoryCell.swift in Sources */,
 				CB441D192D438D8E00E4A199 /* AppDelegate.swift in Sources */,
 				CB441D3D2D43E9E000E4A199 /* MenuListVC.swift in Sources */,
 				CB441D462D4404CA00E4A199 /* Router.swift in Sources */,
 				CB441D4F2D44076C00E4A199 /* BaseCoordinator.swift in Sources */,
 				CB441D672D452E6D00E4A199 /* UIViewController + Presentable.swift in Sources */,
+				CB95EF9A2D463C4200775F1B /* CategorySection.swift in Sources */,
 				CB441D4E2D44076C00E4A199 /* BaseViewController.swift in Sources */,
 				CB441D632D440E7800E4A199 /* MainCoordinator.swift in Sources */,
+				CB95EF982D463C2D00775F1B /* CategoryItem.swift in Sources */,
 				CB441D3F2D43EA1A00E4A199 /* DishesListVC.swift in Sources */,
 				CB441D432D43EA5400E4A199 /* BasketVC.swift in Sources */,
 				CB441D5B2D440AEC00E4A199 /* DishesListView.swift in Sources */,
@@ -533,6 +549,8 @@
 				INFOPLIST_FILE = MyFood/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -565,6 +583,8 @@
 				INFOPLIST_FILE = MyFood/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

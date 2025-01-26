@@ -1,17 +1,41 @@
 import UIKit
 
-class MenuListVC<View: MenuListView>: BaseViewController<View> {
+final class MenuListViewController<View: MenuListView>: BaseViewController<View>, UICollectionViewDelegateFlowLayout {
     
     var complition: VoidClosure?
+    
+    // MARK: Life cycle
     
     override func viewDidLoad(){
         super.viewDidLoad()
         title = "Menu"
-        
-        let action = UIAction { [weak self] _ in
-            self?.complition?()
-        }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .done, primaryAction: action)
+
+        setupRightButton()
+        rootView.collectionView.delegate = self
+    }
+    
+    
+    // MARK: Private methods
+    
+    private func setupRightButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .cart, style: .done, target: self, action: #selector(rightButtonTapped))
+    }
+    
+    @objc private func rightButtonTapped() {
+        print("RightButtonTapped")
+        complition?()
+    }
+    
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width - 45) / 2
+        let height = width - 40
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Tapped item at \(indexPath.row)")
     }
 }

@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.appCoordinator = coordinator
             
         self.window?.makeKeyAndVisible()
+        self.window?.backgroundColor = .white
         coordinator.start()
         
         return true

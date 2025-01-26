@@ -14,7 +14,6 @@ final class Di {
 }
 
 protocol AppFactory {
-    
     func makeKeyWindowWithCoordinator() -> (UIWindow, Coordinator)
 }
 
@@ -22,18 +21,28 @@ extension Di: AppFactory {
     
     func makeKeyWindowWithCoordinator() -> (UIWindow, Coordinator) {
         let window = UIWindow()
-        let rootVC = UINavigationController()
-        rootVC.navigationBar.prefersLargeTitles = true
+        let rootVC = createNavigationController()
         let router = RouterImp(rootController: rootVC)
         let cooridnator = coordinatorFactory.makeApplicationCoordinator(router: router)
         window.rootViewController = rootVC
         return (window, cooridnator)
     }
+    
+    func createNavigationController() -> UINavigationController {
+        let navController = UINavigationController()
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        navController.navigationBar.standardAppearance = appearance
+        navController.navigationBar.scrollEdgeAppearance = appearance
+        return navController
+    }
 }
 
 protocol ScreenFactory {
-    
-    func makeMenuScreen() -> MenuListVC<MenuListViewImpl>
+    func makeMenuScreen() -> MenuListViewController<MenuListViewImpl>
     func makeCategoryDishesScreen() -> DishesListVC<DishesListViewImpl>
     func makeOrderScreen() -> OrderVC<OrderViewImpl>
     func makeBasketScreen() -> BasketVC<BasketViewImpl>
@@ -44,8 +53,8 @@ final class ScreenFactoryImpl: ScreenFactory {
     fileprivate weak var di: Di!
     fileprivate init(){}
     
-    func makeMenuScreen() -> MenuListVC<MenuListViewImpl> {
-        MenuListVC<MenuListViewImpl>()
+    func makeMenuScreen() -> MenuListViewController<MenuListViewImpl> {
+        MenuListViewController<MenuListViewImpl>()
     }
     
     func makeCategoryDishesScreen() -> DishesListVC<DishesListViewImpl> {
@@ -62,10 +71,8 @@ final class ScreenFactoryImpl: ScreenFactory {
 }
 
 protocol CoordinatorFactory {
-    
     func makeApplicationCoordinator(router: Router) -> AppCoordinator
     func makeMainCoordinator(router: Router) -> MainCoordinator
-    
 }
 
 final class CoordinatorFactoryImpl: CoordinatorFactory {
@@ -83,5 +90,4 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     func makeMainCoordinator(router: Router) -> MainCoordinator {
         MainCoordinator(router: router, screenFactory: screenFactory)
     }
-    
 }

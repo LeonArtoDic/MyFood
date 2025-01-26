@@ -1,7 +1,6 @@
 import UIKit
 
 protocol Router: Presentable {
-    
     func present(_ module: Presentable?, animated: Bool)
     
     func push(_ module: Presentable?)
@@ -16,16 +15,23 @@ protocol Router: Presentable {
     func dismissModule(animated: Bool, completion: (() -> Void)?)
 }
 
-
 final class RouterImp: Router {
+    
+    // MARK: Private properties
     
     private weak var rootController: UINavigationController?
     private var completions: [UIViewController : () -> Void]
+    
+    
+    // MARK: Initialization
     
     init(rootController: UINavigationController) {
         self.rootController = rootController
         completions = [:]
     }
+    
+    
+    // MARK: Open methods
     
     func toPresent() -> UIViewController? {
         return rootController
@@ -88,6 +94,9 @@ final class RouterImp: Router {
             }
         }
     }
+    
+    
+    // MARK: Private methods
     
     private func runCompletion(for controller: UIViewController) {
         guard let completion = completions[controller] else { return }

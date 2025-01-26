@@ -13,6 +13,7 @@ class BaseViewController<View: UIView>: UIViewController {
         super.viewWillDisappear(animated)
         
         if isMovingFromParent {
+            print("<--- Moved back")
             onBackButtonTap?()
         }
     }
