@@ -1,12 +1,12 @@
 import UIKit
 
-class BasketVC<View: BasketView>: BaseViewController<View> {
+class DetailVC<View: DetailView>: BaseViewController<View> {
     
     var complition: VoidClosure?
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        view.backgroundColor = .orange
-        title = "Basket"
+        view.backgroundColor = .yellow
+        title = "Detail"
     }
 }

@@ -13,6 +13,9 @@ final class Di {
     }
 }
 
+
+// MARK: App coordinator factory
+
 protocol AppFactory {
     func makeKeyWindowWithCoordinator() -> (UIWindow, Coordinator)
 }
@@ -33,19 +36,20 @@ extension Di: AppFactory {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .white
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         navController.navigationBar.standardAppearance = appearance
         navController.navigationBar.scrollEdgeAppearance = appearance
         return navController
     }
 }
 
+
+// MARK: Screen factory
+
 protocol ScreenFactory {
     func makeMenuScreen() -> MenuListViewController<MenuListViewImpl>
-    func makeCategoryDishesScreen() -> DishesListVC<DishesListViewImpl>
-    func makeOrderScreen() -> OrderVC<OrderViewImpl>
-    func makeBasketScreen() -> BasketVC<BasketViewImpl>
+    func makeFoodScreen() -> FoodListVC<FoodListViewImpl>
+    func makeDetailScreen() -> DetailVC<DetailViewImpl>
+    func makeCartScreen() -> CartVC<CartViewImpl>
 }
 
 final class ScreenFactoryImpl: ScreenFactory {
@@ -57,18 +61,21 @@ final class ScreenFactoryImpl: ScreenFactory {
         MenuListViewController<MenuListViewImpl>()
     }
     
-    func makeCategoryDishesScreen() -> DishesListVC<DishesListViewImpl> {
-        DishesListVC<DishesListViewImpl>()
+    func makeFoodScreen() -> FoodListVC<FoodListViewImpl> {
+        FoodListVC<FoodListViewImpl>()
     }
     
-    func makeOrderScreen() -> OrderVC<OrderViewImpl> {
-        OrderVC<OrderViewImpl>()
+    func makeDetailScreen() -> DetailVC<DetailViewImpl> {
+        DetailVC<DetailViewImpl>()
     }
     
-    func makeBasketScreen() -> BasketVC<BasketViewImpl> {
-        BasketVC<BasketViewImpl>()
+    func makeCartScreen() -> CartVC<CartViewImpl> {
+        CartVC<CartViewImpl>()
     }
 }
+
+
+// MARK: Coordinator factory
 
 protocol CoordinatorFactory {
     func makeApplicationCoordinator(router: Router) -> AppCoordinator

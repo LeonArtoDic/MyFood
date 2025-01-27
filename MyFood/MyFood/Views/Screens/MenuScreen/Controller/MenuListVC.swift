@@ -23,7 +23,6 @@ final class MenuListViewController<View: MenuListView>: BaseViewController<View>
     
     @objc private func rightButtonTapped() {
         print("RightButtonTapped")
-        complition?()
     }
     
     
@@ -37,5 +36,6 @@ final class MenuListViewController<View: MenuListView>: BaseViewController<View>
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Tapped item at \(indexPath.row)")
+        complition?()
     }
 }

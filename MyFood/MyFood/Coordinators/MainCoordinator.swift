@@ -1,6 +1,7 @@
 import UIKit
 
 class MainCoordinator: BaseCoordinator {
+    
     var finishFlow: VoidClosure?
     
     // MARK: Private properties
@@ -33,7 +34,7 @@ class MainCoordinator: BaseCoordinator {
     }
     
     private func showDishes() {
-        let dishesList = screenFactory.makeCategoryDishesScreen()
+        let dishesList = screenFactory.makeFoodScreen()
         
         dishesList.complition = {
             
@@ -41,21 +42,21 @@ class MainCoordinator: BaseCoordinator {
         router.setRootModule(dishesList, hideBar: false)
     }
     
-    private func showOrder() {
-        let orderVC = screenFactory.makeOrderScreen()
+    private func showDetail() {
+        let detailVC = screenFactory.makeDetailScreen()
         
-        orderVC.complition = {
+        detailVC.complition = {
             
         }
-        router.setRootModule(orderVC, hideBar: false)
+        router.setRootModule(detailVC, hideBar: false)
     }
     
-    private func showBasket() {
-        let basketVC = screenFactory.makeBasketScreen()
+    private func showCart() {
+        let cartVC = screenFactory.makeCartScreen()
         
-        basketVC.complition = {
+        cartVC.complition = {
             
         }
-        router.setRootModule(basketVC, hideBar: false)
+        router.setRootModule(cartVC, hideBar: false)
     }
 }

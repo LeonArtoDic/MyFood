@@ -1,14 +1,14 @@
 import UIKit
 
 final class CategoryCell: UICollectionViewCell {
+    
+    // MARK: Public properties
+    
     var data: CategoryItem?
     
     // MARK: Private properties
     
-    private lazy var imageView = {
-        let imageView = UIImageView(image: self.data?.imageString)
-        return imageView
-    }()
+    private let imageView = UIImageView()
     
     private let blackoutView = {
         let view = UIView()
@@ -18,28 +18,38 @@ final class CategoryCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var titleView = {
-        let view = UILabel()
-        view.text = data?.title
-        view.textColor = .white
-        view.font = .systemFont(ofSize: 20, weight: .bold)
-        view.textAlignment = .center
-        return view
+    private lazy var titleLabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textAlignment = .center
+        return label
     }()
     
     
-    // MARK: Private methods
+    // MARK: Initialization
     
-    public override func updateConfiguration(using state: UICellConfigurationState) {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Public methods
+    
+    override func updateConfiguration(using state: UICellConfigurationState) {
         super.updateConfiguration(using: state)
+        
+        setupData()
         
         var backgroundConf = self.defaultBackgroundConfiguration()
         
         backgroundConf.backgroundColor = .red
         backgroundConf.cornerRadius = 12
-        
-        addSubviews()
-        setupConstraints()
 
         backgroundConf.customView = imageView
                 
@@ -50,21 +60,27 @@ final class CategoryCell: UICollectionViewCell {
         
         backgroundConfiguration = backgroundConf
     }
+    
+    
+    // MARK: Private methods
+    
+    private func setupData() {
+        imageView.image = data?.imageString
+        titleLabel.text = data?.title
+    }
 }
 
 
-// MARK: Setup constraints methods
+// MARK: Setup constraints
 
 extension CategoryCell {
     
-    private func addSubviews() {
-        imageView.addSubview(blackoutView)
-        blackoutView.addSubview(titleView)
-    }
-    
     private func setupConstraints() {
         blackoutView.translatesAutoresizingMaskIntoConstraints = false
-        titleView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        imageView.addSubview(blackoutView)
+        blackoutView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
             blackoutView.leftAnchor.constraint(equalTo: imageView.leftAnchor),
@@ -72,10 +88,10 @@ extension CategoryCell {
             blackoutView.topAnchor.constraint(equalTo: imageView.topAnchor),
             blackoutView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
             
-            titleView.leftAnchor.constraint(equalTo: blackoutView.leftAnchor),
-            titleView.rightAnchor.constraint(equalTo: blackoutView.rightAnchor),
-            titleView.topAnchor.constraint(equalTo: blackoutView.topAnchor),
-            titleView.bottomAnchor.constraint(equalTo: blackoutView.bottomAnchor)
+            titleLabel.leftAnchor.constraint(equalTo: blackoutView.leftAnchor),
+            titleLabel.rightAnchor.constraint(equalTo: blackoutView.rightAnchor),
+            titleLabel.topAnchor.constraint(equalTo: blackoutView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: blackoutView.bottomAnchor)
         ])
     }
 }
