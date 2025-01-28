@@ -26,7 +26,6 @@ class RatingView: UIView {
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFit
             imageView.image = UIImage(systemName: "star")
-            imageView.tintColor = .yellow
             starImageViews.append(imageView)
         }
         
@@ -58,7 +57,7 @@ class RatingView: UIView {
                 }
             } else {
                 star.image = UIImage(systemName: "star")
-                star.tintColor = .gray
+                star.tintColor = .yellow
             }
         }
     }

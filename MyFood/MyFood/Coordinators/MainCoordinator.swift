@@ -36,10 +36,10 @@ class MainCoordinator: BaseCoordinator {
     private func showDishes() {
         let dishesList = screenFactory.makeFoodScreen()
         
-        dishesList.complition = {
-            
+        dishesList.complition = { [weak self] in
+            self?.router.popModule(animated: true)
         }
-        router.setRootModule(dishesList, hideBar: false)
+        router.push(dishesList, animated: true)
     }
     
     private func showDetail() {

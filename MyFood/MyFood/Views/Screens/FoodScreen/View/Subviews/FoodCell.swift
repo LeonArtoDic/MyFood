@@ -9,7 +9,6 @@ final class FoodCell: UITableViewCell {
     // MARK: Private properties
     
     private let substrateView = UIView()
-    
     private let imageVi = UIImageView()
     
     private let titleLabel = {
@@ -45,7 +44,7 @@ final class FoodCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     
     // MARK: Public methods
     
@@ -53,9 +52,9 @@ final class FoodCell: UITableViewCell {
         super.updateConfiguration(using: state)
         
         setupData()
-        
+        self.layoutIfNeeded() // Tut sporno no rabotaet tolko tak
+
         var backgroundConf = self.defaultBackgroundConfiguration()
-        
         backgroundConf.customView = substrateView
         backgroundConf.backgroundColor = .orange
         backgroundConf.cornerRadius = 12
@@ -109,8 +108,9 @@ extension FoodCell {
             stack.bottomAnchor.constraint(equalTo: substrateView.bottomAnchor, constant: -10),
             
             ratingView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
-            ratingView.heightAnchor.constraint(equalToConstant: 15),
+            ratingView.heightAnchor.constraint(lessThanOrEqualToConstant: 15),
             ratingView.widthAnchor.constraint(equalToConstant: 70),
+            
             descriptionLabel.widthAnchor.constraint(equalTo: stack.widthAnchor)
         ])
     }
