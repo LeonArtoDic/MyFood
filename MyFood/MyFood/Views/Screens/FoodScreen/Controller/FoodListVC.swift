@@ -2,7 +2,9 @@ import UIKit
 
 class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDelegate, UISearchBarDelegate {
     
-    var complition: VoidClosure?
+    var goBack: VoidClosure?
+    var goToCart: VoidClosure?
+    var goToDetail: VoidClosure?
     
     // MARK: - Private properties
     
@@ -37,12 +39,12 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
     
     @objc private func leftButtonTapped() {
         print("LeftButtonTapped")
-        complition?()
+        goBack?()
     }
     
     @objc private func rightButtonTapped() {
         print("RightButtonTapped")
-        complition?()
+        goToCart?()
     }
     
     
@@ -50,6 +52,7 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tapped cell - ", indexPath)
+        goToDetail?()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

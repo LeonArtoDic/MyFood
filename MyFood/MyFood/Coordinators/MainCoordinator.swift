@@ -28,27 +28,34 @@ class MainCoordinator: BaseCoordinator {
         let menuList = screenFactory.makeMenuScreen()
         
         menuList.complition = {[weak self] in
-            self?.showDishes()
+            self?.showFood()
         }
+        
         router.setRootModule(menuList, hideBar: false)
     }
     
-    private func showDishes() {
-        let dishesList = screenFactory.makeFoodScreen()
+    private func showFood() {
+        let foodList = screenFactory.makeFoodScreen()
         
-        dishesList.complition = { [weak self] in
+        foodList.goBack = { [weak self] in
             self?.router.popModule(animated: true)
         }
-        router.push(dishesList, animated: true)
+        
+        foodList.goToDetail = { [weak self] in
+            self?.showDetail()
+        }
+        
+        router.push(foodList)
     }
     
     private func showDetail() {
         let detailVC = screenFactory.makeDetailScreen()
         
-        detailVC.complition = {
-            
+        detailVC.goBack = {[weak self] in
+            self?.showFood()
         }
-        router.setRootModule(detailVC, hideBar: false)
+        
+        router.push(detailVC)
     }
     
     private func showCart() {
@@ -57,6 +64,7 @@ class MainCoordinator: BaseCoordinator {
         cartVC.complition = {
             
         }
+        
         router.setRootModule(cartVC, hideBar: false)
     }
 }

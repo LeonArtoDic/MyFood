@@ -37,6 +37,11 @@
 		CB95EFA92D47CB1F00775F1B /* MocFoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFA82D47CB1F00775F1B /* MocFoodData.swift */; };
 		CB95EFAC2D47D21400775F1B /* MockMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFAB2D47D21400775F1B /* MockMenuData.swift */; };
 		CB95EFAE2D47D9BE00775F1B /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFAD2D47D9BE00775F1B /* StackView.swift */; };
+		CB95EFB32D48EEDC00775F1B /* FoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFB22D48EEDC00775F1B /* FoodCard.swift */; };
+		CB95EFB62D48FCBF00775F1B /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFB52D48FCBF00775F1B /* StepperView.swift */; };
+		CB95EFB82D4A445900775F1B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFB72D4A445900775F1B /* Label.swift */; };
+		CB95EFBA2D4A4B3B00775F1B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFB92D4A4B3B00775F1B /* UIButton.swift */; };
+		CB95EFBD2D4A514700775F1B /* BackBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFBC2D4A514700775F1B /* BackBarButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		CB95EFA82D47CB1F00775F1B /* MocFoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocFoodData.swift; sourceTree = "<group>"; };
 		CB95EFAB2D47D21400775F1B /* MockMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMenuData.swift; sourceTree = "<group>"; };
 		CB95EFAD2D47D9BE00775F1B /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		CB95EFB22D48EEDC00775F1B /* FoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCard.swift; sourceTree = "<group>"; };
+		CB95EFB52D48FCBF00775F1B /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
+		CB95EFB72D4A445900775F1B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		CB95EFB92D4A4B3B00775F1B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		CB95EFBC2D4A514700775F1B /* BackBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 		CB441D2E2D43E5BE00E4A199 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB95EFB12D48ED2A00775F1B /* DetailModels */,
 				CB95EF9C2D4680BC00775F1B /* FoodModels */,
 				CB95EF9B2D46809F00775F1B /* MenuModels */,
 			);
@@ -153,6 +164,7 @@
 		CB441D332D43E5F200E4A199 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB95EFBB2D4A512F00775F1B /* CustomViews */,
 				CB441D2C2D43968C00E4A199 /* Assets.xcassets */,
 				CB441D262D438D9200E4A199 /* Info.plist */,
 				CB441D232D438D9200E4A199 /* LaunchScreen.storyboard */,
@@ -297,6 +309,7 @@
 		CB441D562D440A9F00E4A199 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB95EFB42D48FCB100775F1B /* Subviews */,
 				CB441D5C2D440B3400E4A199 /* DetailView.swift */,
 			);
 			path = View;
@@ -350,6 +363,8 @@
 				CB441D662D452E6D00E4A199 /* ViewController + Presentable.swift */,
 				CB95EF952D4553DF00775F1B /* Cell + reuseId.swift */,
 				CB95EFAD2D47D9BE00775F1B /* StackView.swift */,
+				CB95EFB72D4A445900775F1B /* Label.swift */,
+				CB95EFB92D4A4B3B00775F1B /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,6 +384,30 @@
 				CB95EF932D45508700775F1B /* CategoryCell.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		CB95EFB12D48ED2A00775F1B /* DetailModels */ = {
+			isa = PBXGroup;
+			children = (
+				CB95EFB22D48EEDC00775F1B /* FoodCard.swift */,
+			);
+			path = DetailModels;
+			sourceTree = "<group>";
+		};
+		CB95EFB42D48FCB100775F1B /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				CB95EFB52D48FCBF00775F1B /* StepperView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		CB95EFBB2D4A512F00775F1B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				CB95EFBC2D4A514700775F1B /* BackBarButtonView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,12 +486,15 @@
 				CB441D532D4408CE00E4A199 /* MenuListView.swift in Sources */,
 				CB441D652D440ED800E4A199 /* Types.swift in Sources */,
 				CB441D412D43EA4B00E4A199 /* DetailVC.swift in Sources */,
+				CB95EFB82D4A445900775F1B /* Label.swift in Sources */,
 				CB95EF962D4553DF00775F1B /* Cell + reuseId.swift in Sources */,
+				CB95EFBA2D4A4B3B00775F1B /* UIButton.swift in Sources */,
 				CB95EFA02D4683F900775F1B /* FoodSection.swift in Sources */,
 				CB95EFA42D4783A800775F1B /* RatingView.swift in Sources */,
 				CB95EF942D45508700775F1B /* CategoryCell.swift in Sources */,
 				CB441D192D438D8E00E4A199 /* AppDelegate.swift in Sources */,
 				CB441D3D2D43E9E000E4A199 /* MenuListVC.swift in Sources */,
+				CB95EFBD2D4A514700775F1B /* BackBarButtonView.swift in Sources */,
 				CB441D462D4404CA00E4A199 /* Router.swift in Sources */,
 				CB95EF9E2D4683EE00775F1B /* FoodItem.swift in Sources */,
 				CB95EFAC2D47D21400775F1B /* MockMenuData.swift in Sources */,
@@ -464,10 +506,12 @@
 				CB441D632D440E7800E4A199 /* MainCoordinator.swift in Sources */,
 				CB95EFA92D47CB1F00775F1B /* MocFoodData.swift in Sources */,
 				CB95EF982D463C2D00775F1B /* CategoryItem.swift in Sources */,
+				CB95EFB62D48FCBF00775F1B /* StepperView.swift in Sources */,
 				CB441D3F2D43EA1A00E4A199 /* FoodListVC.swift in Sources */,
 				CB441D432D43EA5400E4A199 /* CartVC.swift in Sources */,
 				CB441D5B2D440AEC00E4A199 /* FoodListView.swift in Sources */,
 				CB441D612D440CE200E4A199 /* AppCoordinator.swift in Sources */,
+				CB95EFB32D48EEDC00775F1B /* FoodCard.swift in Sources */,
 				CB441D5F2D440B6400E4A199 /* CartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

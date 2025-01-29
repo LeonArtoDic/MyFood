@@ -11,26 +11,15 @@ final class FoodCell: UITableViewCell {
     private let substrateView = UIView()
     private let imageVi = UIImageView()
     
-    private let titleLabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .bold)
-        return label
-    }()
+    private let titleLabel = UILabel(font: .systemFont(ofSize: 20, weight: .bold))
     
     private let ratingView = RatingView()
     
-    private let descriptionLabel = {
-        let label = UILabel()
-        label.numberOfLines = 3
-        label.font = .systemFont(ofSize: 15, weight: .regular)
-        return label
-    }()
+    private let descriptionLabel = UILabel(
+        font: .systemFont(ofSize: 15, weight: .regular),
+        lines: 3)
     
-    private let priceLabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .regular)
-        return label
-    }()
+    private let priceLabel = UILabel(font: .systemFont(ofSize: 15, weight: .regular))
     
 
     // MARK: Initialization

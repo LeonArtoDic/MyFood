@@ -18,13 +18,10 @@ final class CategoryCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var titleLabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 20, weight: .bold)
-        label.textAlignment = .center
-        return label
-    }()
+    private lazy var titleLabel = UILabel(
+        textColor: .white,
+        font: .systemFont(ofSize: 20, weight: .bold),
+        alignment: .center)
     
     
     // MARK: Initialization
