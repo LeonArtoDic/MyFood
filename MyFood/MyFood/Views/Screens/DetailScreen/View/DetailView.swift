@@ -19,6 +19,12 @@ final class DetailViewImpl: UIView, DetailView {
         return imageView
     }()
     
+    private let ratingView = {
+        let view = RatingView()
+        view.rating = 3
+        return view
+    }()
+    
     private let descriptionLabel = UILabel(
         text: "Guy's BBQ Trash Can Nachos + Caliente Margaritas Ribs & Chicken Combo Pack - Serves 6-8",
         font: .systemFont(ofSize: 15, weight: .medium),
@@ -83,7 +89,7 @@ extension DetailViewImpl {
     
     private func setupConstraints() {
         let descriptionStack = UIStackView(
-            arrangedSubviews: [titleLabel, imageView, descriptionLabel],
+            arrangedSubviews: [titleLabel, imageView, ratingView, descriptionLabel],
             axis: .vertical,
             spacing: 10
         )

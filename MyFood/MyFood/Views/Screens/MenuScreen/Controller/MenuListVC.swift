@@ -3,6 +3,7 @@ import UIKit
 final class MenuListViewController<View: MenuListView>: BaseViewController<View>, UICollectionViewDelegateFlowLayout {
     
     var complition: VoidClosure?
+    var goToCart: VoidClosure?
     
     // MARK: Life cycle
     
@@ -22,7 +23,8 @@ final class MenuListViewController<View: MenuListView>: BaseViewController<View>
     }
     
     @objc private func rightButtonTapped() {
-        print("RightButtonTapped")
+        print("Moved to cart")
+        goToCart?()
     }
     
     

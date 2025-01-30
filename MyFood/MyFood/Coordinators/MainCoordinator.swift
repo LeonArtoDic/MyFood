@@ -31,6 +31,10 @@ class MainCoordinator: BaseCoordinator {
             self?.showFood()
         }
         
+        menuList.goToCart = {[weak self] in
+            self?.showCart()
+        }
+        
         router.setRootModule(menuList, hideBar: false)
     }
     
@@ -52,7 +56,7 @@ class MainCoordinator: BaseCoordinator {
         let detailVC = screenFactory.makeDetailScreen()
         
         detailVC.goBack = {[weak self] in
-            self?.showFood()
+            self?.router.popModule(animated: true)
         }
         
         router.push(detailVC)

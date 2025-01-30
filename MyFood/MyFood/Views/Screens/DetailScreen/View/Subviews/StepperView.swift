@@ -10,7 +10,7 @@ final class StepperView: UIControl {
         button.isEnabled = false
         return button
     }()
-    
+        
     private let incrementButton = {
         let button = UIButton(backColor: #colorLiteral(red: 0.8187198043, green: 0.9357115626, blue: 0.731353581, alpha: 1), cornerRadius: 10)
         button.setImage(.plus, for: .normal)
@@ -47,7 +47,7 @@ final class StepperView: UIControl {
     
     
     // MARK: Private methods
-    
+        
     private func activateDecrement() {
         decrementButton.isEnabled = true
         decrementButton.backgroundColor = #colorLiteral(red: 0.8187198043, green: 0.9357115626, blue: 0.731353581, alpha: 1)

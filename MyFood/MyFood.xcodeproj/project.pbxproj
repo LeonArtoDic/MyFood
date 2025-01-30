@@ -41,7 +41,6 @@
 		CB95EFB62D48FCBF00775F1B /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFB52D48FCBF00775F1B /* StepperView.swift */; };
 		CB95EFB82D4A445900775F1B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFB72D4A445900775F1B /* Label.swift */; };
 		CB95EFBA2D4A4B3B00775F1B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFB92D4A4B3B00775F1B /* UIButton.swift */; };
-		CB95EFBD2D4A514700775F1B /* BackBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95EFBC2D4A514700775F1B /* BackBarButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +80,6 @@
 		CB95EFB52D48FCBF00775F1B /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		CB95EFB72D4A445900775F1B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		CB95EFB92D4A4B3B00775F1B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		CB95EFBC2D4A514700775F1B /* BackBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,7 +371,6 @@
 			isa = PBXGroup;
 			children = (
 				CB95EFA12D46850D00775F1B /* FoodCell.swift */,
-				CB95EFA32D4783A800775F1B /* RatingView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -405,7 +402,7 @@
 		CB95EFBB2D4A512F00775F1B /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				CB95EFBC2D4A514700775F1B /* BackBarButtonView.swift */,
+				CB95EFA32D4783A800775F1B /* RatingView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -494,7 +491,6 @@
 				CB95EF942D45508700775F1B /* CategoryCell.swift in Sources */,
 				CB441D192D438D8E00E4A199 /* AppDelegate.swift in Sources */,
 				CB441D3D2D43E9E000E4A199 /* MenuListVC.swift in Sources */,
-				CB95EFBD2D4A514700775F1B /* BackBarButtonView.swift in Sources */,
 				CB441D462D4404CA00E4A199 /* Router.swift in Sources */,
 				CB95EF9E2D4683EE00775F1B /* FoodItem.swift in Sources */,
 				CB95EFAC2D47D21400775F1B /* MockMenuData.swift in Sources */,

@@ -50,14 +50,14 @@ class RatingView: UIView {
             if Double(index) < rating {
                 if rating - Double(index) >= 1 {
                     star.image = UIImage(systemName: "star.fill")
-                    star.tintColor = .yellow
+                    star.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
                 } else {
                     star.image = UIImage(systemName: "star.leadinghalf.filled")
-                    star.tintColor = .yellow
+                    star.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
                 }
             } else {
                 star.image = UIImage(systemName: "star")
-                star.tintColor = .yellow
+                star.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             }
         }
     }
