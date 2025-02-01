@@ -1,11 +1,7 @@
 import UIKit
 
 final class FoodCell: UITableViewCell {
-    
-    // MARK: Public properties
-    
-    var data: FoodItem?
-    
+        
     // MARK: Private properties
     
     private let substrateView = UIView()
@@ -40,8 +36,7 @@ final class FoodCell: UITableViewCell {
     override func updateConfiguration(using state: UICellConfigurationState) {
         super.updateConfiguration(using: state)
         
-        setupData()
-        self.layoutIfNeeded() // Tut sporno no rabotaet tolko tak
+        self.layoutIfNeeded()  // Tut ooochen sporno no rabotaet tolko tak
 
         var backgroundConf = self.defaultBackgroundConfiguration()
         backgroundConf.customView = substrateView
@@ -55,16 +50,13 @@ final class FoodCell: UITableViewCell {
         
         backgroundConfiguration = backgroundConf
     }
-    
-    
-    // MARK: Private methods
-    
-    private func setupData() {
-        imageVi.image = data?.imageString
-        titleLabel.text = data?.title
-        ratingView.rating = Double(data?.rating ?? "0") ?? 0
-        descriptionLabel.text = data?.description
-        priceLabel.text = data?.price
+
+    func setupData(_ data: FoodItem) {
+        imageVi.image = data.imageString
+        titleLabel.text = data.title
+        ratingView.rating = Double(data.rating) ?? 0
+        descriptionLabel.text = data.description
+        priceLabel.text = data.price
     }
 }
 

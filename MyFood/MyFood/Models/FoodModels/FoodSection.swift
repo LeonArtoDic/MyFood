@@ -1,3 +1,3 @@
-public enum FoodSection: Int, CaseIterable {
+enum FoodSection: Int, CaseIterable {
     case sectionFood
 }

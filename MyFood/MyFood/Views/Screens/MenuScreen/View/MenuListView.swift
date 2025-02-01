@@ -56,13 +56,13 @@ final class MenuListViewImpl: UIView, MenuListView {
     }
     
     private func createDataSource(){
-        diffableDataSource = CategoryDataSource(collectionView: collectionView) { collectionView, indexPath, Item in
+        diffableDataSource = CategoryDataSource(collectionView: collectionView) { collectionView, indexPath, item in
             guard let section = CategorySection(rawValue: indexPath.section) else { return nil }
         
             switch section {
             case .sectionCategory:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseId, for: indexPath) as? CategoryCell
-                cell?.data = Item
+                cell?.setupData(item)
                 
                 return cell
             }

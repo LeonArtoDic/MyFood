@@ -2,10 +2,6 @@ import UIKit
 
 final class CategoryCell: UICollectionViewCell {
     
-    // MARK: Public properties
-    
-    var data: CategoryItem?
-    
     // MARK: Private properties
     
     private let imageView = UIImageView()
@@ -40,9 +36,7 @@ final class CategoryCell: UICollectionViewCell {
     
     override func updateConfiguration(using state: UICellConfigurationState) {
         super.updateConfiguration(using: state)
-        
-        setupData()
-        
+                
         var backgroundConf = self.defaultBackgroundConfiguration()
         
         backgroundConf.backgroundColor = .red
@@ -57,13 +51,10 @@ final class CategoryCell: UICollectionViewCell {
         
         backgroundConfiguration = backgroundConf
     }
-    
-    
-    // MARK: Private methods
-    
-    private func setupData() {
-        imageView.image = data?.imageString
-        titleLabel.text = data?.title
+
+    func setupData(_ data: CategoryItem) {
+        imageView.image = data.imageString
+        titleLabel.text = data.title
     }
 }
 

@@ -74,13 +74,13 @@ class FoodListViewImpl: UIView, FoodListView {
     }
     
     private func createDataSource(){
-        diffableDataSource = FoodDataSource(tableView: tableView) { tableView, indexPath, Item in
+        diffableDataSource = FoodDataSource(tableView: tableView) { tableView, indexPath, item in
             guard let section = FoodSection(rawValue: indexPath.section) else { return nil }
         
             switch section {
             case .sectionFood:
                 let cell = tableView.dequeueReusableCell(withIdentifier: FoodCell.reuseId, for: indexPath) as? FoodCell
-                cell?.data = Item
+                cell?.setupData(item)
                 
                 return cell
             }

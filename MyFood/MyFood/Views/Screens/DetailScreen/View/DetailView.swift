@@ -83,7 +83,7 @@ final class DetailViewImpl: UIView, DetailView {
 }
 
 
-//MARK: Setup constraints
+// MARK: Setup constraints
 
 extension DetailViewImpl {
     

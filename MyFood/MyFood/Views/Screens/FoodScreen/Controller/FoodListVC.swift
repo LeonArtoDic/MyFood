@@ -35,6 +35,7 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
     private func setupNavigationButton() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: .back, style: .done, target: self, action: #selector(leftButtonTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: .cart, style: .done, target: self, action: #selector(rightButtonTapped))
+        navigationItem.backButtonTitle = "Food"
     }
     
     @objc private func leftButtonTapped() {

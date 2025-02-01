@@ -49,6 +49,10 @@ class MainCoordinator: BaseCoordinator {
             self?.showDetail()
         }
         
+        foodList.goToCart = { [weak self] in
+            self?.showCart()
+        }
+        
         router.push(foodList)
     }
     
@@ -69,6 +73,6 @@ class MainCoordinator: BaseCoordinator {
             
         }
         
-        router.setRootModule(cartVC, hideBar: false)
+        router.push(cartVC)
     }
 }

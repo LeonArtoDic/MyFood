@@ -6,7 +6,7 @@ class CartVC<View: CartView>: BaseViewController<View> {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         title = "Cart"
     }
 }

@@ -34,10 +34,21 @@ extension Di: AppFactory {
     func createNavigationController() -> UINavigationController {
         let navController = UINavigationController()
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
+        appearance.configureWithDefaultBackground()
         appearance.backgroundColor = .white
+        appearance.setBackIndicatorImage(
+            .back,
+            transitionMaskImage: .back
+        )
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.systemFont(ofSize: 17)
+        ]
+        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.black]
+
         navController.navigationBar.standardAppearance = appearance
         navController.navigationBar.scrollEdgeAppearance = appearance
+        navController.navigationBar.compactAppearance = appearance
         return navController
     }
 }
