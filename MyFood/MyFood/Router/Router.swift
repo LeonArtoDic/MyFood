@@ -1,6 +1,6 @@
 import UIKit
 
-protocol Router: Presentable {
+protocol RouterLogic: Presentable {
     func present(_ module: Presentable?, animated: Bool)
     
     func push(_ module: Presentable?)
@@ -15,7 +15,7 @@ protocol Router: Presentable {
     func dismissModule(animated: Bool, completion: (() -> Void)?)
 }
 
-final class RouterImp: Router {
+final class Router: RouterLogic {
     
     // MARK: Private properties
     

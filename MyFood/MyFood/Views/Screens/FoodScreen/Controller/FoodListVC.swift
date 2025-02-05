@@ -1,10 +1,16 @@
 import UIKit
 
-class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDelegate, UISearchBarDelegate {
+final class FoodListVC<View: FoodListViewLogic>: BaseViewController<View>, UITableViewDelegate, UISearchBarDelegate {
+    
+    // MARK: Navigation
     
     var goBack: VoidClosure?
     var goToCart: VoidClosure?
-    var goToDetail: VoidClosure?
+    var goToDetail: ((FoodItem) -> Void)?
+    
+    // MARK: - Public properties
+    
+    var category: Categories?
     
     // MARK: - Private properties
     
@@ -15,6 +21,20 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
         return searchBar
     }()
     
+    private let foodProvider: FoodProvider
+    
+    
+    // MARK: Initialization
+    
+    init(foodProvider: FoodProvider) {
+        self.foodProvider = foodProvider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     // MARK: - Life cycle
     
@@ -23,9 +43,14 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
         view.backgroundColor = .white
         
         rootView.tableView.delegate = self
-        
         searchBar.delegate = self
         navigationItem.titleView = searchBar
+        
+        Task {
+            self.rootView.data = await foodProvider.getFoodList(by: category ?? .bbqs)
+            self.rootView.reloadDiffData()
+        }
+
         setupNavigationButton()
     }
     
@@ -39,12 +64,10 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
     }
     
     @objc private func leftButtonTapped() {
-        print("LeftButtonTapped")
         goBack?()
     }
     
     @objc private func rightButtonTapped() {
-        print("RightButtonTapped")
         goToCart?()
     }
     
@@ -52,12 +75,13 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Tapped cell - ", indexPath)
-        goToDetail?()
+        rootView.isSearching
+        ? goToDetail?(rootView.filteredFoodData[indexPath.row])
+        : goToDetail?(rootView.data[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        140
+        150
     }
     
     
@@ -71,10 +95,9 @@ class FoodListVC<View: FoodListView>: BaseViewController<View>, UITableViewDeleg
     // MARK: UISearchBarDelegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Enter ->", searchText)
         if !searchText.isEmpty {
             rootView.isSearching = true
-            rootView.filteredFoodData = rootView.foodData.filter {$0.title.lowercased().contains(searchText.lowercased()) }
+            rootView.filteredFoodData = rootView.data.filter {$0.title.lowercased().contains(searchText.lowercased()) }
             rootView.reloadDiffData()
         } else {
             rootView.isSearching = false

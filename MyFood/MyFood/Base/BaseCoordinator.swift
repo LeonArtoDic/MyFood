@@ -1,21 +1,21 @@
 import Foundation
 
-protocol Coordinator: AnyObject {
+protocol CoordinatorLogic: AnyObject {
     func start()
 }
 
-class BaseCoordinator: Coordinator {
+class BaseCoordinator: CoordinatorLogic {
   
-  var childCoordinators: [Coordinator] = []
+  var childCoordinators: [CoordinatorLogic] = []
   
   func start() {}
   
-  func addDependency(_ coordinator: Coordinator) {
+  func addDependency(_ coordinator: CoordinatorLogic) {
     guard !childCoordinators.contains(where: { $0 === coordinator }) else { return }
     childCoordinators.append(coordinator)
   }
   
-  func removeDependency(_ coordinator: Coordinator?) {
+  func removeDependency(_ coordinator: CoordinatorLogic?) {
     guard
       childCoordinators.isEmpty == false,
       let coordinator = coordinator

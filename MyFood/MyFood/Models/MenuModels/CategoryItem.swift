@@ -2,8 +2,8 @@ import UIKit
 
 struct CategoryItem: Hashable {
     public let title: String
-    public let imageString: UIImage
-    public let id: Int
+    public let image: UIImage
+    public let id: Categories
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

@@ -1,21 +1,21 @@
 import UIKit
 
-protocol FoodListView: UIView {
+protocol FoodListViewLogic: UIView {
     var tableView: UITableView { get }
     var isSearching: Bool { get set }
-    var foodData: [FoodItem] { get set }
+    var data: [FoodItem] { get set }
     var filteredFoodData: [FoodItem] { get set }
     
     func reloadDiffData()
 }
 
-class FoodListViewImpl: UIView, FoodListView {
+final class FoodListView: UIView, FoodListViewLogic {
     
     // MARK: - Public properties
     
     let tableView = UITableView()
     
-    var foodData = FoodMockData()()
+    var data = [FoodItem]()
     var filteredFoodData = [FoodItem]()
     
     var isSearching = false
@@ -25,7 +25,7 @@ class FoodListViewImpl: UIView, FoodListView {
     
     typealias FoodSnapshot = NSDiffableDataSourceSnapshot<FoodSection, FoodItem>
     typealias FoodDataSource = UITableViewDiffableDataSource<FoodSection, FoodItem>
-    private var diffableDataSource: FoodDataSource?
+    private var diffData: FoodDataSource?
     
     
     // MARK: - Initializer
@@ -53,18 +53,19 @@ class FoodListViewImpl: UIView, FoodListView {
         
         isSearching
         ? snapshot.appendItems(filteredFoodData, toSection: .sectionFood)
-        : snapshot.appendItems(foodData, toSection: .sectionFood)
+        : snapshot.appendItems(data, toSection: .sectionFood)
     
-        diffableDataSource?.apply(snapshot, animatingDifferences: true)
+        diffData?.apply(snapshot, animatingDifferences: true)
     }
     
     
     // MARK: - Private methods
     
     private func setupTableView() {
-        tableView.frame = self.bounds
+        tableView.frame = bounds
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
 
         addSubview(tableView)
     }
@@ -74,7 +75,7 @@ class FoodListViewImpl: UIView, FoodListView {
     }
     
     private func createDataSource(){
-        diffableDataSource = FoodDataSource(tableView: tableView) { tableView, indexPath, item in
+        diffData = FoodDataSource(tableView: tableView) { tableView, indexPath, item in
             guard let section = FoodSection(rawValue: indexPath.section) else { return nil }
         
             switch section {

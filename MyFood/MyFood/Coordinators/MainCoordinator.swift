@@ -27,8 +27,8 @@ class MainCoordinator: BaseCoordinator {
     private func showMenu() {
         let menuList = screenFactory.makeMenuScreen()
         
-        menuList.complition = {[weak self] in
-            self?.showFood()
+        menuList.goToFood = {[weak self] selectedCategory in
+            self?.showFood(selectedCategory)
         }
         
         menuList.goToCart = {[weak self] in
@@ -38,15 +38,17 @@ class MainCoordinator: BaseCoordinator {
         router.setRootModule(menuList, hideBar: false)
     }
     
-    private func showFood() {
+    private func showFood(_ categoryName: Categories) {
         let foodList = screenFactory.makeFoodScreen()
+        
+        foodList.category = categoryName
         
         foodList.goBack = { [weak self] in
             self?.router.popModule(animated: true)
         }
         
-        foodList.goToDetail = { [weak self] in
-            self?.showDetail()
+        foodList.goToDetail = { [weak self] item in
+            self?.showDetail(item)
         }
         
         foodList.goToCart = { [weak self] in
@@ -56,8 +58,9 @@ class MainCoordinator: BaseCoordinator {
         router.push(foodList)
     }
     
-    private func showDetail() {
+    private func showDetail(_ item: FoodItem) {
         let detailVC = screenFactory.makeDetailScreen()
+        detailVC.item = item
         
         detailVC.goBack = {[weak self] in
             self?.router.popModule(animated: true)
@@ -68,10 +71,6 @@ class MainCoordinator: BaseCoordinator {
     
     private func showCart() {
         let cartVC = screenFactory.makeCartScreen()
-        
-        cartVC.complition = {
-            
-        }
         
         router.push(cartVC)
     }

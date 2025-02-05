@@ -2,14 +2,22 @@ import UIKit
 
 class RatingView: UIView {
     
+    // MARK: - Private properties
+    
     private let maxStars = 5
     private var starImageViews: [UIImageView] = []
     
-    var rating: Double = 0 {
+    
+    // MARK: - Public properties
+    
+    var rating: Int = 0 {
         didSet {
             updateStars()
         }
     }
+    
+    
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +28,9 @@ class RatingView: UIView {
         super.init(coder: coder)
         setupStars()
     }
+    
+    
+    // MARK: - Private methods
     
     private func setupStars() {
         for _ in 0..<maxStars {
@@ -47,8 +58,8 @@ class RatingView: UIView {
     
     private func updateStars() {
         for (index, star) in starImageViews.enumerated() {
-            if Double(index) < rating {
-                if rating - Double(index) >= 1 {
+            if index < rating {
+                if rating - index >= 1 {
                     star.image = UIImage(systemName: "star.fill")
                     star.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
                 } else {

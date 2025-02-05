@@ -2,11 +2,11 @@ import UIKit
 
 struct FoodItem: Hashable {
     public let title: String
-    public let rating: String
+    public let rating: Int
     public let description: String
-    public let price: String
-    public let imageString: UIImage
-    public let id: Int
+    public let price: Double
+    public let imageString: String
+    public let id: String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

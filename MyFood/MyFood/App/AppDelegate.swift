@@ -3,8 +3,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private let appFactory: AppFactory = Di()
-    private var appCoordinator: Coordinator?
+    private let appFactory: AppFactoryLogic = Di()
+    private var appCoordinator: CoordinatorLogic?
 
     var window: UIWindow?
     

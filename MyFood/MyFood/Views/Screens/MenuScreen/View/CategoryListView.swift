@@ -1,29 +1,29 @@
 import UIKit
 
-protocol MenuListView: UIView {
+protocol CategoryListViewLogic: UIView {
     var collectionView: UICollectionView! { get }
+    var data: [CategoryItem] { get }
 }
 
-final class MenuListViewImpl: UIView, MenuListView {
+final class CategoryListView: UIView, CategoryListViewLogic {
     
     // MARK: Public properties
     
     var collectionView: UICollectionView!
+    var data = MenuData()()
     
     // MARK: Private properties
     
     typealias CategorySnapshot = NSDiffableDataSourceSnapshot<CategorySection, CategoryItem>
     typealias CategoryDataSource = UICollectionViewDiffableDataSource<CategorySection, CategoryItem>
-    
-    private var diffableDataSource: CategoryDataSource?
-    
-    private let menuData = MenuMockData()()
-    
+    private var diffData: CategoryDataSource?
+
     
     // MARK: Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupCollectionView()
         registerCell()
         createDataSource()
@@ -39,7 +39,7 @@ final class MenuListViewImpl: UIView, MenuListView {
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 0, right: 15)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 15
@@ -48,7 +48,7 @@ final class MenuListViewImpl: UIView, MenuListView {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .white
 
-        self.addSubview(collectionView)
+        addSubview(collectionView)
     }
     
     private func registerCell() {
@@ -56,7 +56,7 @@ final class MenuListViewImpl: UIView, MenuListView {
     }
     
     private func createDataSource(){
-        diffableDataSource = CategoryDataSource(collectionView: collectionView) { collectionView, indexPath, item in
+        diffData = CategoryDataSource(collectionView: collectionView) { collectionView, indexPath, item in
             guard let section = CategorySection(rawValue: indexPath.section) else { return nil }
         
             switch section {
@@ -72,7 +72,7 @@ final class MenuListViewImpl: UIView, MenuListView {
     private func reloadDiffData() {
         var snapshot = CategorySnapshot()
         snapshot.appendSections([.sectionCategory])
-        snapshot.appendItems(menuData, toSection: .sectionCategory)
-        diffableDataSource?.apply(snapshot, animatingDifferences: true)
+        snapshot.appendItems(data, toSection: .sectionCategory)
+        diffData?.apply(snapshot, animatingDifferences: true)
     }
 }

@@ -1,20 +1,22 @@
 import UIKit
 
 enum CartItem: Hashable {
-    case product(Product)
-    case summary(Int)
+    case product(Order)
+    case summary(Double)
 }
 
-struct Product: Hashable {
-    let id: Int
+struct Order: Hashable, Decodable, Encodable {
+    let id: String
     let title: String
-    let price: Int
+    let price: Double
+    let imageString: String
+    let count: Int
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    static func == (lhs: Product, rhs: Product) -> Bool {
+    static func == (lhs: Order, rhs: Order) -> Bool {
         return lhs.id == rhs.id
     }
 }

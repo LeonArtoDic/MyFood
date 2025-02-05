@@ -1,8 +1,10 @@
 import UIKit
 
-final class MenuListViewController<View: MenuListView>: BaseViewController<View>, UICollectionViewDelegateFlowLayout {
+final class CategoryListVC<View: CategoryListViewLogic>: BaseViewController<View>, UICollectionViewDelegateFlowLayout {
     
-    var complition: VoidClosure?
+    // MARK: Navigation
+    
+    var goToFood: ((Categories) -> Void)?
     var goToCart: VoidClosure?
     
     // MARK: Life cycle
@@ -23,7 +25,6 @@ final class MenuListViewController<View: MenuListView>: BaseViewController<View>
     }
     
     @objc private func rightButtonTapped() {
-        print("Moved to cart")
         goToCart?()
     }
     
@@ -37,7 +38,6 @@ final class MenuListViewController<View: MenuListView>: BaseViewController<View>
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tapped item at \(indexPath.row)")
-        complition?()
+        goToFood?(rootView.data[indexPath.row].id)
     }
 }

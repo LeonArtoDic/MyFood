@@ -42,8 +42,9 @@ final class TotalCostCell: UITableViewCell {
         backgroundConfiguration = backgroundConf
     }
     
-    func setupData(_ totalCost: Int) {
-        totalCostLabel.text = "$\(totalCost)"
+    func setupData(_ totalCost: Double) {
+        let formatedPrice = String(format: "%.2f", totalCost)
+        totalCostLabel.text = "$\(formatedPrice)"
     }
 }
 

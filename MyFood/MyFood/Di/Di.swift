@@ -2,13 +2,19 @@ import UIKit
 
 final class Di {
     
-    fileprivate let screenFactory: ScreenFactoryImpl
-    fileprivate let coordinatorFactory: CoordinatorFactoryImpl
+    fileprivate let screenFactory: ScreenFactory
+    fileprivate let coordinatorFactory: CoordinatorFactory
+    fileprivate let networService: NetworkService
+    
+    fileprivate var foodProvider: FoodProvider {
+        FoodProvider(networkService: networService)
+    }
     
     init() {
-        screenFactory = ScreenFactoryImpl()
-        coordinatorFactory = CoordinatorFactoryImpl(screenFactory: screenFactory)
-        
+        screenFactory = ScreenFactory()
+        coordinatorFactory = CoordinatorFactory(screenFactory: screenFactory)
+        networService = NetworkService()
+                
         screenFactory.di = self
     }
 }
@@ -16,16 +22,16 @@ final class Di {
 
 // MARK: App coordinator factory
 
-protocol AppFactory {
-    func makeKeyWindowWithCoordinator() -> (UIWindow, Coordinator)
+protocol AppFactoryLogic {
+    func makeKeyWindowWithCoordinator() -> (UIWindow, CoordinatorLogic)
 }
 
-extension Di: AppFactory {
+extension Di: AppFactoryLogic {
     
-    func makeKeyWindowWithCoordinator() -> (UIWindow, Coordinator) {
+    func makeKeyWindowWithCoordinator() -> (UIWindow, CoordinatorLogic) {
         let window = UIWindow()
         let rootVC = createNavigationController()
-        let router = RouterImp(rootController: rootVC)
+        let router = Router(rootController: rootVC)
         let cooridnator = coordinatorFactory.makeApplicationCoordinator(router: router)
         window.rootViewController = rootVC
         return (window, cooridnator)
@@ -56,48 +62,48 @@ extension Di: AppFactory {
 
 // MARK: Screen factory
 
-protocol ScreenFactory {
-    func makeMenuScreen() -> MenuListViewController<MenuListViewImpl>
-    func makeFoodScreen() -> FoodListVC<FoodListViewImpl>
-    func makeDetailScreen() -> DetailVC<DetailViewImpl>
-    func makeCartScreen() -> CartVC<CartViewImpl>
+protocol ScreenFactoryLogic {
+    func makeMenuScreen() -> CategoryListVC<CategoryListView>
+    func makeFoodScreen() -> FoodListVC<FoodListView>
+    func makeDetailScreen() -> DetailVC<DetailView>
+    func makeCartScreen() -> CartVC<CartView>
 }
 
-final class ScreenFactoryImpl: ScreenFactory {
+final class ScreenFactory: ScreenFactoryLogic {
     
     fileprivate weak var di: Di!
     fileprivate init(){}
     
-    func makeMenuScreen() -> MenuListViewController<MenuListViewImpl> {
-        MenuListViewController<MenuListViewImpl>()
+    func makeMenuScreen() -> CategoryListVC<CategoryListView> {
+        CategoryListVC<CategoryListView>()
     }
     
-    func makeFoodScreen() -> FoodListVC<FoodListViewImpl> {
-        FoodListVC<FoodListViewImpl>()
+    func makeFoodScreen() -> FoodListVC<FoodListView> {
+        FoodListVC<FoodListView>(foodProvider: di.foodProvider)
     }
     
-    func makeDetailScreen() -> DetailVC<DetailViewImpl> {
-        DetailVC<DetailViewImpl>()
+    func makeDetailScreen() -> DetailVC<DetailView> {
+        DetailVC<DetailView>()
     }
     
-    func makeCartScreen() -> CartVC<CartViewImpl> {
-        CartVC<CartViewImpl>()
+    func makeCartScreen() -> CartVC<CartView> {
+        CartVC<CartView>()
     }
 }
 
 
 // MARK: Coordinator factory
 
-protocol CoordinatorFactory {
+protocol CoordinatorFactoryLogic {
     func makeApplicationCoordinator(router: Router) -> AppCoordinator
     func makeMainCoordinator(router: Router) -> MainCoordinator
 }
 
-final class CoordinatorFactoryImpl: CoordinatorFactory {
+final class CoordinatorFactory: CoordinatorFactoryLogic {
     
-    private let screenFactory: ScreenFactory
+    private let screenFactory: ScreenFactoryLogic
     
-    fileprivate init(screenFactory: ScreenFactory){
+    fileprivate init(screenFactory: ScreenFactoryLogic){
         self.screenFactory = screenFactory
     }
     
@@ -106,6 +112,6 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     }
     
     func makeMainCoordinator(router: Router) -> MainCoordinator {
-        MainCoordinator(router: router, screenFactory: screenFactory)
+        MainCoordinator(router: router, screenFactory: screenFactory as! ScreenFactory)
     }
 }

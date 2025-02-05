@@ -1,25 +1,43 @@
 import UIKit
 
-protocol CartView: UIView {
+protocol CartViewLogic: UIView {
     var tableView: UITableView { get }
+    var placeOrderButton: UIButton { get }
+    var data: [Order] { get set }
+    
+    func reloadDiffData()
 }
 
-class CartViewImpl: UIView, CartView {
+class CartView: UIView, CartViewLogic {
     
     // MARK: - Public properties
     
     var tableView = UITableView()
+    var placeOrderButton = UIButton()
     
-    var cartData = CartMockData()()
+    var orderManager = OrderManager.shared
     
+    var data = [Order]() {
+        didSet {
+            if data.isEmpty {
+                tableView.isHidden = true
+                placeOrderButton.isHidden = true
+                emptyCartImageView.isHidden = false
+            }
+        }
+    }
     
     // MARK: - Private properties
     
-    private var placeOrderButton = UIButton()
+    private let emptyCartImageView = {
+        let imageVi = UIImageView(image: .emptyCart)
+        imageVi.contentMode = .scaleAspectFit
+        return imageVi
+    }()
     
     typealias CartSnapshot = NSDiffableDataSourceSnapshot<CartSection, CartItem>
     typealias CartDataSource = UITableViewDiffableDataSource<CartSection, CartItem>
-    private var diffableDataSource: CartDataSource?
+    private var diffData: CartDataSource?
     
     
     // MARK: - Initializer
@@ -27,16 +45,48 @@ class CartViewImpl: UIView, CartView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        registerCell()
-        createDataSource()
-        reloadDiffData()
-        configureOrderButton()
-        setupConstraints()
+        tableView.separatorStyle = .none
+                
+        if let data = orderManager.getTotalOrder() {
+            self.data = data
+            
+            emptyCartImageView.isHidden = true
+            
+            registerCell()
+            createDataSource()
+            reloadDiffData()
+            configureOrderButton()
+            setupConstraints()
+            return
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
         
+    }
+    
+    
+    // MARK: - Life cycle
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        addSubview(emptyCartImageView)
+        emptyCartImageView.frame = CGRect(x: 0, y: 0, width: bounds.width / 3, height: bounds.width / 3)
+        emptyCartImageView.center = center
+    }
+    
+    
+    // MARK: - Public methods
+    
+    func reloadDiffData() {
+        let totalCost = data.reduce(0) { $0 + ($1.price * Double($1.count))}
+        var snapshot = NSDiffableDataSourceSnapshot<CartSection, CartItem>()
+        snapshot.appendSections([.products, .summary])
+        snapshot.appendItems(data.map { .product($0) }, toSection: .products)
+        snapshot.appendItems([.summary(totalCost)], toSection: .summary)
+        diffData?.apply(snapshot, animatingDifferences: true)
     }
     
     
@@ -48,11 +98,11 @@ class CartViewImpl: UIView, CartView {
     }
     
     private func createDataSource(){
-        diffableDataSource = UITableViewDiffableDataSource<CartSection, CartItem>(tableView: tableView) { tableView, indexPath, item in
+        diffData = UITableViewDiffableDataSource<CartSection, CartItem>(tableView: tableView) { tableView, indexPath, item in
             switch item {
-            case .product(let product):
+            case .product(let order):
                 let cell = tableView.dequeueReusableCell(withIdentifier: CartCell.reuseId, for: indexPath) as? CartCell
-                cell?.setupData(product)
+                cell?.setupData(order)
                 return cell
             case .summary(let total):
                 let cell = tableView.dequeueReusableCell(withIdentifier: TotalCostCell.reuseId, for: indexPath) as? TotalCostCell
@@ -62,39 +112,26 @@ class CartViewImpl: UIView, CartView {
         }
     }
     
-    private func reloadDiffData() {
-        let totalCost = cartData.reduce(0) { $0 + $1.price }
-        var snapshot = NSDiffableDataSourceSnapshot<CartSection, CartItem>()
-        snapshot.appendSections([.products, .summary])
-        snapshot.appendItems(cartData.map { .product($0) }, toSection: .products)
-        snapshot.appendItems([.summary(totalCost)], toSection: .summary)
-        diffableDataSource?.apply(snapshot, animatingDifferences: true)
-    }
-    
     private func configureOrderButton() {
         var configure = UIButton.Configuration.filled()
         
         configure.title = "PLACE ORDER"
         configure.cornerStyle = .small
-        configure.baseBackgroundColor = .orange
+        configure.baseBackgroundColor = #colorLiteral(red: 0.0505053103, green: 0.1062033251, blue: 0.1656947136, alpha: 1)
         
-        let action = UIAction {_ in
-            print("-- PLACE ORDER tapped --")
-        }
-        
-        placeOrderButton = UIButton(configuration: configure, primaryAction: action)
+        placeOrderButton = UIButton(configuration: configure)
     }
 }
 
 
 // MARK: Setup constraints
 
-extension CartViewImpl {
+extension CartView {
     
     private func setupConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         placeOrderButton.translatesAutoresizingMaskIntoConstraints = false
-        
+
         addSubview(tableView)
         addSubview(placeOrderButton)
         
