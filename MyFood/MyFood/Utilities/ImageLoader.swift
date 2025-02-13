@@ -29,6 +29,8 @@ final class ImageLoader: ImageLoaderLogic {
         
         guard let url = URL(string: urlString) else { return nil }
         
+        URLSession.shared.configuration.httpMaximumConnectionsPerHost = 10
+        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             if let image = UIImage(data: data) {

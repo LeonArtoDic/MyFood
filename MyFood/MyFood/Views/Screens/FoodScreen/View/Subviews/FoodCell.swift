@@ -58,6 +58,7 @@ final class FoodCell: UITableViewCell {
         super.prepareForReuse()
         
         imageVi.image = nil
+        imageVi.alpha = 0
         viewModel.prepareForReuse()
     }
     
@@ -140,6 +141,10 @@ extension FoodCell {
             .compactMap { $0 }
             .sink { [weak self] image in
                 self?.imageVi.image = image
+                
+                UIView.animate(withDuration: 0.5) {
+                    self?.imageVi.alpha = 1
+                }
             }
             .store(in: &cancellables)
     }
